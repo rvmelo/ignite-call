@@ -21,6 +21,7 @@ import { z } from 'zod'
 import { getWeekDays } from '@/utils/get-week-day'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { convertTimeStringToMinutes } from '@/utils/convert-time-string-to-minutes'
+import { api } from '@/lib/axios'
 
 const timeIntervalFormSchema = z.object({
   intervals: z
@@ -77,44 +78,44 @@ export default function TimeIntervals() {
         {
           weekDay: 0,
           enabled: false,
-          startTime: '8:00:00',
-          endTime: '18:00:00',
+          startTime: '08:00',
+          endTime: '18:00',
         },
         {
           weekDay: 1,
           enabled: true,
-          startTime: '8:00:00',
-          endTime: '18:00:00',
+          startTime: '08:00',
+          endTime: '18:00',
         },
         {
           weekDay: 2,
           enabled: true,
-          startTime: '8:00:00',
-          endTime: '18:00:00',
+          startTime: '08:00',
+          endTime: '18:00',
         },
         {
           weekDay: 3,
           enabled: true,
-          startTime: '8:00:00',
-          endTime: '18:00:00',
+          startTime: '08:00',
+          endTime: '18:00',
         },
         {
           weekDay: 4,
           enabled: true,
-          startTime: '8:00:00',
-          endTime: '18:00:00',
+          startTime: '08:00',
+          endTime: '18:00',
         },
         {
           weekDay: 5,
           enabled: true,
-          startTime: '8:00:00',
-          endTime: '18:00:00',
+          startTime: '08:00',
+          endTime: '18:00',
         },
         {
           weekDay: 6,
           enabled: false,
-          startTime: '8:00:00',
-          endTime: '18:00:00',
+          startTime: '08:00',
+          endTime: '18:00',
         },
       ],
     },
@@ -130,8 +131,8 @@ export default function TimeIntervals() {
   const intervals = watch('intervals')
 
   async function handleSetTimeIntervals(data: unknown) {
-    const formData = data as TimeIntervalsFormOutput
-    console.log(formData)
+    const { intervals } = data as TimeIntervalsFormOutput
+    await api.post('/users/time-intervals', { intervals })
   }
 
   return (
