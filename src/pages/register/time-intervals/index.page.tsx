@@ -132,6 +132,7 @@ export default function TimeIntervals() {
 
   async function handleSetTimeIntervals(data: unknown) {
     const { intervals } = data as TimeIntervalsFormOutput
+    console.log(intervals)
     await api.post('/users/time-intervals', { intervals })
   }
 
