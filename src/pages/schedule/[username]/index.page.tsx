@@ -16,7 +16,7 @@ export default function Schedule({ user }: ScheduleProps) {
     <Container>
       <UserHeader>
         <Avatar src={user?.avatarUrl} />
-        <Heading>{user?.avatarUrl}</Heading>
+        <Heading>{user?.name}</Heading>
         <Text>{user?.bio}</Text>
       </UserHeader>
     </Container>
