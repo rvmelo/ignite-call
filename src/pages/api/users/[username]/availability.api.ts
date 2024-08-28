@@ -36,7 +36,8 @@ export default async function handle(
 
   if (isPastDate) {
     return res.json({
-      availability: [],
+      possibleTimes: [],
+      availableTimes: [],
     })
   }
 
@@ -48,9 +49,7 @@ export default async function handle(
   })
 
   if (!userAvailability) {
-    return res.json({
-      availability: [],
-    })
+    return res.json({ possibleTimes: [], availableTimes: [] })
   }
 
   const { time_start_in_minutes, time_end_in_minutes } = userAvailability
