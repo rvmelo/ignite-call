@@ -87,7 +87,7 @@ export function ConfirmStep({
 
       <label>
         <Text size="sm">Observações</Text>
-        <TextArea />
+        <TextArea {...register('observation')} />
       </label>
 
       <FormActions>
